@@ -4,9 +4,7 @@
  * @param {number} checkLength
  */
 
-const checkLengthString = (string, checkLength) => {
-   return string.length <= checkLength ? true : false;
-   };
+const checkLengthString = (string, checkLength) => (string.length <= checkLength);
 
 checkLengthString('hello', 20);
 checkLengthString('hello', 4);
@@ -16,57 +14,61 @@ checkLengthString('hello', 4);
  * @param {string} string
  */
 
-const isPalindrom = (string) => {
-  const stringLowCase = string.toLowerCase().split('');
+const checkPalindrome = (string) => {
+  const symbols = string.toLowerCase().split('');
 
-  for (let i = 0; i <= stringLowCase.length/2; i++) {
+  const letters = symbols.filter((symbol) => (symbol !== ' '));
 
-     if (stringLowCase[i] !== stringLowCase[(stringLowCase.length -1 - i)]) {
+  for (let i = 0; i <= letters.length / 2; i++) {
 
-      console.log('false  ' + stringLowCase[i] + '  ' +  stringLowCase[(stringLowCase.length -1 - i)]);
-       return false;
-     }
+    if (letters[i] !== letters[(letters.length - 1 - i)]) {
+      return false;
+    }
   }
   return true;
-  console.log('false  ' + stringLowCase);
 };
-isPalindrom('Hello');
-isPalindrom('Amanama');
+checkPalindrome('Hello mama');
 
-Если хотите усложнить задание, предусмотрите случай, когда в строке встречаются пробелы. Они не должны учитываться при проверке!
+/**
+ *
+ * @param {*} string
+ */
+const extractNumbers = (string) => {
 
-// Это палиндром
-имяФункции('Лёша на полке клопа нашёл '); // true
-Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого положительного числа. Если в строке нет ни одной цифры, функция должна вернуть NaN:
+  const stringConverted = (typeof(string) === 'number') ? String(string) : string ;
 
-имяФункции('2023 год');            // 2023
-имяФункции('ECMAScript 2022');     // 2022
-имяФункции('1 кефир, 0.5 батона'); // 105
-имяФункции('агент 007');           // 7
-имяФункции('а я томат');           // NaN
-Если хотите усложнить задание, предусмотрите случай, когда вместо строки приходит число:
+  const arrayNumbers = [];
 
-имяФункции(2023); // 2023
-имяФункции(-1);   // 1
-имяФункции(1.5);  // 15
-Функция, которая принимает три параметра: исходную строку, минимальную длину и строку с добавочными символами — и возвращает исходную строку, дополненную указанными символами до заданной длины. Символы добавляются в начало строки. Если исходная строка превышает заданную длину, она не должна обрезаться. Если «добивка» слишком длинная, она обрезается с конца.
+  for (let i = 0; i < stringConverted.length; i++) {
+    if (!isNaN(parseInt(stringConverted[i], 10))) {
+      arrayNumbers.push(stringConverted[i]);
+    }
+  }
 
-Эта функция нам пригодится для формирования адресов файлов. Примеры её использования:
+  const finishNumber = Number(arrayNumbers.join(''));
+  return (finishNumber === 0) ? NaN : finishNumber;
+};
 
-// Добавочный символ использован один раз
-имяФункции('1', 2, '0');      // '01'
+extractNumbers('hello154');
 
-// Добавочный символ использован три раза
-имяФункции('1', 4, '0');      // '0001'
 
-// Добавочные символы обрезаны с конца
-имяФункции('q', 4, 'werty');  // 'werq'
+const createAddressFiles = (string, minLength, addSymbol) => {
 
-// Добавочные символы использованы полтора раза
-имяФункции('q', 4, 'we');     // 'wweq'
+  let addressFile = '';
+  let finishAddSymbol = '';
 
-// Добавочные символы не использованы, исходная строка не изменена
-имяФункции('qwerty', 4, '0'); // 'qwerty'
-Попробуйте не использовать при этом функцию padStart() =)
+  if (addSymbol.length + string.length >= minLength) {
+    addressFile = `${addSymbol.substr(0, (minLength - string.length))}${string}`;
+    return addressFile;
+  }
 
- Если вы обнаружили ошибку или неработающую ссылку, выделите ее и нажмите Ctrl +
+  for (let i = 0; i < (minLength - addSymbol.length - string.length); i++) {
+    finishAddSymbol += addSymbol[i];
+  }
+
+  addressFile = finishAddSymbol + addSymbol + string;
+
+  return addressFile;
+};
+
+createAddressFiles('aa', 4, 'bbb');
