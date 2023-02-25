@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Алена Чеснокова](https://up.htmlacademy.ru/javascript/28/user/1700741).
-* Наставник: [Сергей Рожков](https://htmlacademy.ru/profile/id1069033).
+* Наставник: [Александр Конотоп](https://htmlacademy.ru/profile/sineway).
 
 ---
 
