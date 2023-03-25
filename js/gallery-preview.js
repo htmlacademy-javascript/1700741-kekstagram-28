@@ -4,13 +4,11 @@
 const preview = document.querySelector('.big-picture__preview');
 
 /**
- * блок комментариев
  * @type {HTMLUListElement}
  */
 const discussion = preview.querySelector('.social__comments');
 
 /**
- *
  * @type {HTMLLIElement}
  */
 const commentTemplate = discussion.querySelector('.social__comment');
