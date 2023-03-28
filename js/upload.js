@@ -1,7 +1,4 @@
-import createPictureStateList from './data.js';
-import initGallery from './gallery.js';
-
-initGallery(createPictureStateList());
+import updatePreview from './upload-preview.js';
 import openPopup from './popup.js';
 
 /**
@@ -46,15 +43,11 @@ const addDescriptionValidator = (message, validate) => {
 const onFormChange = (event) => {
   if (event.target === form.filename) {
     const data = event.target.files.item(0);
-    updatePreview(data);
 
+    updatePreview(data);
     openPopup(popup);
   }
 };
-
-updatePreview();
-
-openPopup(popup);
 
 /**
  * @param {SubmitEvent} event
