@@ -17,7 +17,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "browser-sync start --server --no-ui --files *.html css/*.css js/**",
+    "start": "browser-sync start --server --no-ui --files *.html vendor/** css/*.css js/**",
     "lint": "eslint js/"
+  },
+  "dependencies": {
+    "pristinejs": "^1.0.0"
   }
 }
