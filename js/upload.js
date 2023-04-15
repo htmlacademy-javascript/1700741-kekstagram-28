@@ -3,6 +3,12 @@ import openPopup from './popup.js';
 import openStatusPopup from './status-popup.js';
 import {request} from './utils.js';
 
+const TAG_START = '#';
+const TAG_PATTERN = new RegExp(`^${TAG_START}[a-zа-яё0-9]+$`);
+const TAG_MAX_LENGTH = 20;
+const TAG_MAX_QUANTITY = 5;
+const DESCRIPTION_MAX_LENGTH = 140;
+
 /**
  * @type {HTMLFormElement}
  */
@@ -87,22 +93,22 @@ const onFormReset = () => {
 };
 
 addHashtagsValidator(
-  'Хэш-теги должны начинаться с символа # (решётка)',
-  (tags) => tags.every((tag) => tag.startsWith('#'))
+  `Хэш-теги должны начинаться с символа ${TAG_START}`,
+  (tags) => tags.every((tag) => tag.startsWith(TAG_START))
 );
 
 addHashtagsValidator(
   'После решётки буквы/цифры',
-  (tags) => tags.every((tag) => /^#[a-zа-яё0-9]+$/.test(tag))
+  (tags) => tags.every((tag) => TAG_PATTERN.test(tag))
 );
 
 addHashtagsValidator(
-  'Максимальная длина одного хэш-тега 20 символов',
-  (tags) => tags.every((tag) => tag.length <= 20)
+  `Максимальная длина одного хэш-тега ${TAG_MAX_LENGTH} символов`,
+  (tags) => tags.every((tag) => tag.length <= TAG_MAX_LENGTH)
 );
 
 addHashtagsValidator(
-  'Не более 5 хэш-тегов',
+  `Не более ${TAG_MAX_QUANTITY} хэш-тегов`,
   (tags) => tags.length <= 5
 );
 
@@ -112,8 +118,8 @@ addHashtagsValidator(
 );
 
 addDescriptionValidator(
-  'Длина описания не должна превышать 140 символов',
-  (description) => description.length <= 140
+  `Длина описания не должна превышать ${DESCRIPTION_MAX_LENGTH} символов`,
+  (description) => description.length <= DESCRIPTION_MAX_LENGTH
 );
 
 form.addEventListener('change', onFormChange);
