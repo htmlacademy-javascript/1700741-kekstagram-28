@@ -1,9 +1,11 @@
+/**масштаб*/
 const Scale = {
   MIN: 25,
   MAX: 100,
   STEP: 25
 };
 
+/**эффекты */
 const Effect = {
   NONE: 'none',
   CHROME: 'chrome',
@@ -13,6 +15,7 @@ const Effect = {
   HEAT: 'heat'
 };
 
+/**характеристики эффектов */
 const effectRangeMap = {
   [Effect.NONE]: [0, 100, 1],
   [Effect.CHROME]: [0, 1, .1],
