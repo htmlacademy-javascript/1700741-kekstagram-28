@@ -5,10 +5,10 @@
   "description": "Личный проект «Кекстаграм» от HTML Academy",
   "repository": {
     "type": "git",
-    "url": "git@github.com:htmlacademy-javascript/1700741-kekstagram-28.git"
+    "url": "git@github.com:htmlacademy-javascript/2333969-kekstagram-28.git"
   },
   "bugs": {
-    "url": "https://github.com/htmlacademy-javascript/1700741-kekstagram-28/issues"
+    "url": "https://github.com/htmlacademy-javascript/2333969-kekstagram-28/issues"
   },
   "devDependencies": {
     "browser-sync": "2.27.11",
@@ -16,11 +16,9 @@
     "eslint-config-htmlacademy": "9.0.0"
   },
   "license": "MIT",
+  "dependencies": {},
   "scripts": {
-    "start": "browser-sync start --server --no-ui --files *.html vendor/** css/*.css js/**",
+    "start": "browser-sync start --server --no-ui --files *.html vendor/** js/**",
     "lint": "eslint js/"
-  },
-  "dependencies": {
-    "pristinejs": "^1.0.0"
   }
 }
