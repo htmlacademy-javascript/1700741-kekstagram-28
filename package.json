@@ -16,11 +16,9 @@
     "eslint-config-htmlacademy": "9.0.0"
   },
   "license": "MIT",
+  "dependencies": {},
   "scripts": {
-    "start": "browser-sync start --server --no-ui --files *.html vendor/** css/*.css js/**",
+    "start": "browser-sync start --server --no-ui --files *.html vendor/** js/**",
     "lint": "eslint js/"
-  },
-  "dependencies": {
-    "pristinejs": "^1.0.0"
   }
 }
